@@ -19,16 +19,22 @@ class TestTextNode(unittest.TestCase):
         self.assertEqual(node_as_string, "TextNode(This is a text node, link, www.boot.dev)")
 
     def test_link(self):
-            node = TextNode("This is a text node", TextType.LINK, "www.boot.dev")
-            self.assertEqual(node.url, "www.boot.dev")
+        node = TextNode("This is a text node", TextType.LINK, "www.boot.dev")
+        self.assertEqual(node.url, "www.boot.dev")
 
     def test_link_none(self):
-                node = TextNode("This is a text node", TextType.LINK, "www.boot.dev")
-                self.assertNotEqual(node.url, None)
+        node = TextNode("This is a text node", TextType.LINK, "www.boot.dev")
+        self.assertNotEqual(node.url, None)
 
     def test_not_link(self):
-                node = TextNode("This is a text node", TextType.BOLD)
-                self.assertEqual(node.url, None)
+        node = TextNode("This is a text node", TextType.BOLD)
+        self.assertEqual(node.url, None)
+
+    def test_text(self):
+        node = TextNode("This is a text node", TextType.TEXT)
+        html_node = node.text_node_to_html_node()
+        self.assertEqual(html_node.tag, None)
+        self.assertEqual(html_node.value, "This is a text node")
 
 
 if __name__ == "__main__":
