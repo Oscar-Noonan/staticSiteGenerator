@@ -30,7 +30,7 @@ class TestTextNode(unittest.TestCase):
         node = TextNode("This is a text node", TextType.BOLD)
         self.assertEqual(node.url, None)
 
-    def test_text(self):
+    def test_convert_text(self):
         node = TextNode("This is a text node", TextType.TEXT)
         html_node = node.text_node_to_html_node()
         self.assertEqual(html_node.tag, None)
