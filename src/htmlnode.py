@@ -1,19 +1,12 @@
-from types import NoneType
-
-from numpy import isin
-
-from textnode import TextNode
-
-
 class HTMLNode:
     def __init__(self, tag: str | None = None,
                  value: str | None = None,
-                 children: list[HTMLNode] | None = None,
-                 props: dict[TextNode] | None = None):
+                 children: list | None = None,
+                 props: dict | None = None):
         self.tag: str | None = tag
         self.value: str | None = value
         self.children: list[HTMLNode] | None = children
-        self.props: dict[TextNode] | None = props
+        self.props: dict | None = props
 
     def __repr__(self):
         return f"HTMLNode({self.tag}, {self.value}, {self.children}, {self.props_to_html()})"
